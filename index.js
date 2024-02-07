@@ -46,6 +46,4 @@ const getFestPages = async () => {
     getPgaeID(response.results);
 }
 
-
-// console.log(response.results[0].properties.name.title[0].plain_text)
 getFestPages()
