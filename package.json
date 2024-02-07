@@ -1,0 +1,12 @@
+{
+    "name": "snowball",
+    "type": "module",
+    "version": "1.0.0",
+    "description": "side project for swing dancer",
+    "main": "index.js",
+    "dependencies": {
+        "@notionhq/client": "^1.0.1",
+        "dotenv": "^16.4.1"
+    },
+    "scripts": {}
+}
