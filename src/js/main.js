@@ -1,4 +1,4 @@
-fetch("/list.json")
+fetch("./list.json")
     .then((response, reject) => {
         return response.json()
     })
