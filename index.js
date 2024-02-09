@@ -1,7 +1,7 @@
 import { Client } from "@notionhq/client";
 import dotenv from "dotenv"
-
 dotenv.config();
+
 const NOTION_KEY = process.env.NOTION_KEY;
 const FEST_KEY = process.env.NOTION_FEST_ID;
 const NOTION = new Client({ auth: NOTION_KEY });
@@ -11,7 +11,7 @@ const NOTION = new Client({ auth: NOTION_KEY });
 2. 배열 내 있는 id 프로퍼티 배열로 받아두기
 */
 
-const getPageProperty = async (id_array) => {
+const getPageProperty = async (id_array, res) => {
     const PROPERTY_OBJECT = [];
     for (let i = 0; i < id_array.length; i++) {
         const response = await NOTION.pages.retrieve({ page_id: id_array[i].id })
@@ -23,7 +23,8 @@ const getPageProperty = async (id_array) => {
             emoji: response.icon ? response.icon.emoji : '',
         })
     }
-    console.log(PROPERTY_OBJECT)
+
+    return PROPERTY_OBJECT
 }
 
 const getPgaeID = (result_array) => {
@@ -35,7 +36,7 @@ const getPgaeID = (result_array) => {
     getPageProperty(ID_ARRAY)
 }
 
-const getFestPages = async () => {
+const getFestPages = async (req, res) => {
     const response = await NOTION.databases.query({
         database_id: FEST_KEY,
         sorts: [{
