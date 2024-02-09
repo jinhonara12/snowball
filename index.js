@@ -1,5 +1,7 @@
 import { Client } from "@notionhq/client";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
+import fs from "fs";
+
 dotenv.config();
 
 const NOTION_KEY = process.env.NOTION_KEY;
@@ -9,7 +11,12 @@ const NOTION = new Client({ auth: NOTION_KEY });
 /* 
 1. 데이타베이스 'query' 메서드로 데이터베이스에 있는 내용(배열) 가져오기
 2. 배열 내 있는 id 프로퍼티 배열로 받아두기
+3. id값의 특정 프로퍼티를 json 파일에 저장
 */
+
+const createList = (data) => {
+    fs.writeFileSync('./list.json', JSON.stringify(data, null, 2))
+}
 
 const getPageProperty = async (id_array, res) => {
     const PROPERTY_OBJECT = [];
@@ -17,14 +24,14 @@ const getPageProperty = async (id_array, res) => {
         const response = await NOTION.pages.retrieve({ page_id: id_array[i].id })
         PROPERTY_OBJECT.push({
             title: response.properties.name.title[0].plain_text,
-            start_date: response.properties.date.date.start,
-            end_date: response.properties.date.date.end ? response.properties.date.date.end : '',
+            start_date: response.properties.date.date ? response.properties.date.date.start : '',
+            end_date: response.properties.date.date && response.properties.date.date.end ? response.properties.date.date.end : '',
             link: response.properties.link.url ? response.properties.link.url : '',
             emoji: response.icon ? response.icon.emoji : '',
         })
     }
 
-    return PROPERTY_OBJECT
+    createList(PROPERTY_OBJECT)
 }
 
 const getPgaeID = (result_array) => {
@@ -44,6 +51,7 @@ const getFestPages = async (req, res) => {
             direction: 'descending',
         }]
     });
+
     getPgaeID(response.results);
 }
 
