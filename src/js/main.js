@@ -40,7 +40,6 @@ fetch("/snowball/list.json")
     })
     .then(data => {
         cloneEl(data.length)
-        console.log(data)
         createEl(listTitle, data)
         createEl(listDday, data)
         createEl(listStartDay, data)
