@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>홈페이지</title>
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/main.css">
     <script defer src="./src/js/main.js"></script>
@@ -36,22 +36,24 @@
                 <div class="item">
                     <div class="top">
                         <div class="title">
-                            <span class="ellipsis">CSI 2024(Camp Swing It)</span>
+                            <span data-index="title" class="ellipsis">CSI 2024(Camp Swing It)</span>
                         </div>
                         <div class="d_day">
-                            <span>D-56</span>
+                            <span data-index="d_date"></span>
                         </div>
                     </div>
                     <div class="bottom">
                         <div class="date">
-                            <div class="start">2024/04/05</div>
+                            <div class="start">
+                                <span data-index="start_date"></span>
+                            </div>
                             <span>~</span>
-                            <div class="end">2024/04/07</div>
+                            <div class="end">
+                                <span data-index="end_date">2024/04/07</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
             </ul>
         </div>
     </div>

@@ -18,7 +18,7 @@ const createList = (data) => {
     fs.writeFileSync('./list.json', JSON.stringify(data, null, 2))
 }
 
-const getPageProperty = async (id_array, res) => {
+const getPageProperty = async (id_array) => {
     const PROPERTY_OBJECT = [];
     for (let i = 0; i < id_array.length; i++) {
         const response = await NOTION.pages.retrieve({ page_id: id_array[i].id })
@@ -26,6 +26,7 @@ const getPageProperty = async (id_array, res) => {
             title: response.properties.name.title[0].plain_text,
             start_date: response.properties.date.date ? response.properties.date.date.start : '',
             end_date: response.properties.date.date && response.properties.date.date.end ? response.properties.date.date.end : '',
+            d_date: response.properties.d_day.formula.string ? response.properties.d_day.formula.string : "",
             link: response.properties.link.url ? response.properties.link.url : '',
             emoji: response.icon ? response.icon.emoji : '',
         })
