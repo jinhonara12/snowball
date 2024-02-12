@@ -32,8 +32,8 @@ const cloneEl = (number) => {
 }
 
 // 경로 변경 필요
-// fetch("/snowball/list.json")
-fetch("/list.json")
+fetch("/snowball/list.json")
+    // fetch("/list.json")
     .then((response, reject) => {
         return response.json()
     })
