@@ -1,6 +1,7 @@
 import { Client } from "@notionhq/client";
 import dotenv from "dotenv";
 import fs from "fs";
+import http from "http";
 
 dotenv.config();
 
@@ -57,3 +58,10 @@ const getFestPages = async (req, res) => {
 }
 
 getFestPages()
+
+
+/* 
+서버와 클라이어트 요청 응답 부분
+    - 홈페이지 접속 시 노션에 데이터가 업데이트 되었는지 확인 필요
+    - 또는 노션에 데이터가 업데이트 되면 서버에 list.json 업데이트
+*/

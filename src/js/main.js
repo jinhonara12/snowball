@@ -7,7 +7,6 @@ let listEndDay
 
 const createEl = (el, data) => {
     for (let i = 0; i < el.length; i++) {
-        console.log(data[i])
         if (data[i][el[i].dataset.index]) {
             el[i].textContent = data[i][el[i].dataset.index];
         } else {
@@ -33,8 +32,8 @@ const cloneEl = (number) => {
 }
 
 // 경로 변경 필요
-fetch("/snowball/list.json")
-    // fetch("/list.json")
+// fetch("/snowball/list.json")
+fetch("/list.json")
     .then((response, reject) => {
         return response.json()
     })

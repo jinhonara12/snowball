@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>홈페이지</title>
     <link rel="stylesheet" href="./src/css/reset.css">
-    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="stylesheet" href="./src/css/common.css">
+    <link rel="stylesheet" href="./src/css/index.css">
     <script defer src="./src/js/main.js"></script>
 </head>
 
@@ -26,34 +27,22 @@
         <div class="content">
             <!-- item title -->
             <div class="title__box">
-                <h1>대회</h1>
+                <h1>메뉴</h1>
             </div>
-            <div class="search__box">
+            <div class="search__box hide">
                 <input type="text" placeholder="검색">
             </div>
             <!-- item list -->
-            <ul class="item__box">
-                <div class="item">
-                    <div class="top">
-                        <div class="title">
-                            <span data-index="title" class="ellipsis">CSI 2024(Camp Swing It)</span>
-                        </div>
-                        <div class="d_day">
-                            <span data-index="d_date"></span>
-                        </div>
-                    </div>
-                    <div class="bottom">
-                        <div class="date">
-                            <div class="start">
-                                <span data-index="start_date"></span>
-                            </div>
-                            <span>~</span>
-                            <div class="end">
-                                <span data-index="end_date">2024/04/07</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <ul class="main__list">
+                <li>
+                    <a href="/fest/main.html">행사</a>
+                </li>
+                <li>
+                    <a href="/">(준비중)</a>
+                </li>
+                <li>
+                    <a href="/">(준비중)</a>
+                </li>
             </ul>
         </div>
     </div>

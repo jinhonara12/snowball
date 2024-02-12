@@ -1,0 +1,23 @@
+/* content */
+.main__list {
+    background-color: #222;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: .5rem;
+}
+
+.main__list li {
+    display: flex;
+    justify-content: right;
+}
+
+.main__list li a {
+    width: 100%;
+    border-bottom: 1px solid #444;
+    padding: 10px 5px;
+    margin-left: .5rem;
+}
+
+.main__list li:last-of-type a {
+    border-bottom: none;
+}
